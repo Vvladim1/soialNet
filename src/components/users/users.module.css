@@ -1,0 +1,19 @@
+.userPhoto {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.wrapper {
+    padding: 10px;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.cursor {
+    cursor: pointer;
+    margin-left: 5px;
+
+}
