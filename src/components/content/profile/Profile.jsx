@@ -2,6 +2,7 @@ import React from "react";
 import s from "./profile.module.css";
 import Preloader from "../../common/preload/preload";
 
+
 const Profile = props => {
   if (!props.profile) {
     return <Preloader />;
@@ -26,6 +27,7 @@ const Profile = props => {
       />
     );
   }
+
   return (
     <div>
       <img

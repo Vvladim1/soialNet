@@ -10,6 +10,7 @@ import News from "./components/news/news";
 import Settings from "./components/settings/settings";
 import UsersContainer from "./components/users/usersContainer";
 import HeaderContainer from "./components/header/headerContainer";
+import Login from './components/login/login'
 
 const App = props => {
   // debugger;
@@ -28,12 +29,9 @@ const App = props => {
               <ProfileContainer />
             )}
           />
-          <Route
-            path="/user"
-            render={() => (
-              <UsersContainer/>
-            )}
-          />
+          <Route path="/user" render={() => ( <UsersContainer/> )}/>
+          <Route path="/login" render={() => ( <Login/> )}/>
+
           <Route path="/news" component={News} />
           <Route path="/musik" component={Musik} />
           <Route path="/settings" component={Settings} />
