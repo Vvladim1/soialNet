@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import { userAPI } from "../../api/api";
 
 const Users = props => {
-  debugger;
+  // debugger;
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
   for (let i = 1; i <= pageCount; i++) {
