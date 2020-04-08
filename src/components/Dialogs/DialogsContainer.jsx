@@ -31,7 +31,8 @@ let AuthRedirectComponent = WithAuthRedirect(Dialogs);
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
 
 export default DialogsContainer;
-
+//========================================
+// there is a problem in the cod after this line (does not work)
 // export default compose(
 //   connect(mapStateToProps, mapDispatchToProps),
 //   WithAuthRedirect
