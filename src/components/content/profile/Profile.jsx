@@ -52,7 +52,7 @@ const Profile = props => {
           <div>{imageJob}</div>
           <div>{props.profile.lookingForAJobDescription}</div>
           <div></div> */}
-          <ProfileStatus status="Hello my frends!" />
+          <ProfileStatus status={props.status} />
         </div>
         
         {/* <div className={s.nameBlock}>
