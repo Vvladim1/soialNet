@@ -2,41 +2,26 @@ import React from "react";
 import s from './formsControls.module.css';
 
 
-// const FormControl = ({input, meta, child, ...props}) => {
-//     const hasError = meta.touched && meta.error;
-//     return (
-//         <div className={s.formControl + ' ' + (hasError ? s.error : '')}>
-//             <div>
-//                 {props.child}
-//             </div>
-//             {hasError && <span>{meta.error}</span>}
-//         </div>
-//     )
-// }
-
-
-export const Textarea = ({input, meta, ...props}) => {
-    debugger;
+const FormControl = ({input, meta, child, ...props}) => {
     const hasError = meta.touched && meta.error;
     return (
         <div className={s.formControl + ' ' + (hasError ? s.error : '')}>
             <div>
-                <textarea name="" {...input} {...props}/>
+                {props.children}
             </div>
             {hasError && <span>{meta.error}</span>}
         </div>
     )
 }
 
-export const Input = ({input, meta, ...props}) => {
-    debugger;
-    const hasError = meta.touched && meta.error;
-    return (
-        <div className={s.formControl + ' ' + (hasError ? s.error : '')}>
-            <div>
-                <input name="" {...input} {...props}/>
-            </div>
-            {hasError && <span>{meta.error}</span>}
-        </div>
-    )
+
+export const Textarea = (props) => {
+    const {input, meta, child, ...restprops} = props;
+    return <FormControl {...props}><textarea {...input} {...restprops}/></FormControl>
+}
+        
+
+export const Input = (props) => {
+    const {input, meta, child, ...restprops} = props;
+    return <FormControl {...props}><input {...input} {...restprops}/></FormControl>
 }
