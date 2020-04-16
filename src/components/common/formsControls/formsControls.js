@@ -3,6 +3,7 @@ import s from './formsControls.module.css';
 
 
 const FormControl = ({input, meta, child, ...props}) => {
+    // debugger;
     const hasError = meta.touched && meta.error;
     return (
         <div className={s.formControl + ' ' + (hasError ? s.error : '')}>

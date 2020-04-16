@@ -43,7 +43,13 @@ export const profileAPI = {
 export const authAPI = {
   me(){
         return instance.get(`auth/me`);
-  }
+  },
+
+  login(email, password, rememberMe = false){
+    return instance.post(`auth/login`, {email, password, rememberMe});//methods put and post can pass json-object as parametr--2
+  },
+  logout(){
+    return instance.delete(`auth/login`);}
 }
 
 
