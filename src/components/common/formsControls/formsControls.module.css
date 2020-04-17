@@ -6,3 +6,11 @@
 .formControl.error span {
     color: red;
 }
+
+.formSummeryError {
+    width: 150px;
+    border: 1px solid red;
+    padding: 5px;
+    color: rgb(235, 46, 46);
+    font-weight: 700;
+}
