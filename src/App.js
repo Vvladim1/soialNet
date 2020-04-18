@@ -4,16 +4,29 @@ import "./App.css";
 import Navbar from "./components/nav/Navbar";
 import ProfileContainer from "./components/content/profileContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import Musik from "./components/musik/musik";
 import News from "./components/news/news";
 import Settings from "./components/settings/settings";
 import UsersContainer from "./components/users/usersContainer";
 import HeaderContainer from "./components/header/headerContainer";
 import Login from './components/login/login'
+import { connect } from "react-redux";
+import { initializeApp } from './components/redux/app-reducer'
+import { compose } from "redux";
+import Preloader from "./components/common/preload/preload";
 
-const App = props => {
+class App extends React.Component {
   // debugger;
+  componentDidMount() {
+    this.props.initializeApp();
+    }
+  render(){
+    if(!this.props.initialized) {
+    return (
+    <Preloader />
+    );
+  }
   return (
     <div className="wrapper">
         <HeaderContainer />
@@ -21,7 +34,7 @@ const App = props => {
         <div className="app-wrapper-content">
           <Route
             path="/dialogs"
-            render={() => <DialogsContainer store={props.store} />}
+            render={() => <DialogsContainer />}
           />
           <Route
             path="/content/:userId?"
@@ -38,6 +51,12 @@ const App = props => {
         </div>
     </div>
   );
+}
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+});
+export default compose(
+  withRouter,
+  connect(mapStateToProps, {initializeApp}))(App);
